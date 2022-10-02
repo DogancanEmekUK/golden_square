@@ -4,7 +4,7 @@ RSpec.describe PasswordChecker do
     context "No errors" do
         it "successfully validates password" do
             password_checker = PasswordChecker.new
-            result = password_checker.check("dogancan35")
+            result = password_checker.check("kdgfksdhf")
             expect(result).to eq true
         end
     end
