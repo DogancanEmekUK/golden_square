@@ -1,5 +1,6 @@
 require "task_list"
 require "task"
+require "task_formatter"
 
 RSpec.describe TaskList do
   it "initially has an empty list" do
@@ -43,6 +44,12 @@ RSpec.describe TaskList do
     task_list.add(task1)
     task_list.add(task2)
     expect(task_list.all_complete?).to eq true
+  end
+
+  it "returns formatted versions of tasks" do
+    task = double :fake_task, title: "Do your homework", complete?: true
+    task_formatter = TaskFormatter.new(task)
+    expect(task_formatter.format).to eq "[x] #{task}"
   end
 
 end
